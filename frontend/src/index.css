@@ -1,90 +1,90 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.nav-link{
+.nav-link {
   margin-left: 40px;
 }
 
 .footer-link {
-    color: #6c757d;
-    text-decoration: none;
+  color: #6c757d;
+  text-decoration: none;
 }
 
 .footer-link:hover {
-    color: #387ed1;
+  color: #387ed1;
 }
 
 .social {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px 0;
 }
 
 .social li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 20px;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .social a:hover {
-    color: #387ed1;
+  color: #387ed1;
 }
 
 .social-links {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 25px 0;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
 }
 
 .social-links li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .social-links a {
-    color: #666;
-    font-size: 20px;
-    text-decoration: none;
+  color: #666;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .social-links a:hover {
-    color: #387ed1;
+  color: #387ed1;
 }
 
 .app-badges {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 .app-badges img {
-    height: 50px;
-    width: 100px;
-    object-fit: contain;
+  height: 50px;
+  width: 100px;
+  object-fit: contain;
 }
