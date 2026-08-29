@@ -3,85 +3,68 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
-
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
-    username: "",
   });
-
-  const { email, password, username } = inputValue;
+  const { email, password } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setInputValue((prev) => ({
-      ...prev,
+    setInputValue({
+      ...inputValue,
       [name]: value,
-    }));
+    });
   };
+
+  const handleError = (err) =>
+    toast.error(err, {
+      position: "bottom-left",
+    });
+
+  const handleSuccess = (msg) =>
+    toast.success(msg, {
+      position: "bottom-left",
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        "http://localhost:3002/login",
         {
-          email,
-          password,
-          username,
+          ...inputValue,
         },
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        { withCredentials: true }
       );
-
-      if (data.success) {
-        toast.success(data.message, {
-          position: "bottom-right",
-        });
-
-        setInputValue({
-          email: "",
-          password: "",
-          username: "",
-        });
-
+      const { success, message } = data;
+      if (success) {
+        handleSuccess(message);
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate("/");
         }, 1000);
       } else {
-        toast.error(data.message, {
-          position: "bottom-left",
-        });
+        handleError(message);
       }
     } catch (error) {
-      console.error("Signup error:", error);
-
-      toast.error(
-        error.response?.data?.message || "Signup failed",
-        {
-          position: "bottom-left",
-        }
-      );
+      console.log(error);
     }
+    setInputValue({
+      email: "",
+      password: "",
+    });
   };
 
   return (
     <div className="auth_page">
       <div className="form_container">
-        <h2>Signup Account</h2>
-
+        <h2>Login Account</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
             <input
-              id="email"
               type="email"
               name="email"
               value={email}
@@ -90,24 +73,9 @@ const Signup = () => {
               required
             />
           </div>
-
-          <div>
-            <label htmlFor="username">Username</label>
-            <input
-              id="username"
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Enter your username"
-              onChange={handleOnChange}
-              required
-            />
-          </div>
-
           <div>
             <label htmlFor="password">Password</label>
             <input
-              id="password"
               type="password"
               name="password"
               value={password}
@@ -116,18 +84,15 @@ const Signup = () => {
               required
             />
           </div>
-
-          <button type="submit">Sign Up</button>
-
+          <button type="submit">Submit</button>
           <span>
-            Already have an account? <Link to="/login">Login</Link>
+            Don't have an account? <Link to="/signup">Signup</Link>
           </span>
         </form>
-
         <ToastContainer />
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default Login;
