@@ -58,37 +58,66 @@ const Login = () => {
   };
 
   return (
-    <div className="auth_page">
-      <div className="form_container">
-        <h2>Login Account</h2>
+    <div className="container mt-5 mb-5 d-flex justify-content-center align-items-center" style={{ minHeight: "80vh" }}>
+      <div
+        className="p-5 shadow rounded bg-white w-100"
+        style={{ maxWidth: "450px" }}
+      >
+        <h2 className="mb-4 fw-normal text-center" style={{ color: "#00d2ff" }}>
+          Login Account
+        </h2>
+
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email">Email</label>
+          <div className="mb-3 text-start">
+            <label htmlFor="email" className="form-label text-secondary fs-6">
+              Email
+            </label>
             <input
               type="email"
               name="email"
               value={email}
-              placeholder="Enter your email"
               onChange={handleOnChange}
+              className="form-control border-0 border-bottom rounded-0 fst-italic shadow-none"
+              placeholder="Enter your email"
               required
             />
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
+
+          <div className="mb-4 text-start">
+            <label htmlFor="password" className="form-label text-secondary fs-6">
+              Password
+            </label>
             <input
               type="password"
               name="password"
               value={password}
-              placeholder="Enter your password"
               onChange={handleOnChange}
+              className="form-control border-0 border-bottom rounded-0 fst-italic shadow-none"
+              placeholder="Enter your password"
               required
             />
           </div>
-          <button type="submit">Submit</button>
-          <span>
-            Don't have an account? <Link to="/signup">Signup</Link>
-          </span>
+
+          <button
+            type="submit"
+            className="btn w-100 text-white py-2 mb-4 fw-semibold"
+            style={{ backgroundColor: "#00d2ff", border: "none" }}
+          >
+            Submit
+          </button>
+
+          <div className="text-muted text-center fs-6">
+            Don't have an account?{" "}
+            <Link
+              to="/signup"
+              className="text-decoration-none fw-normal"
+              style={{ color: "#00d2ff" }}
+            >
+              Signup
+            </Link>
+          </div>
         </form>
+
         <ToastContainer />
       </div>
     </div>

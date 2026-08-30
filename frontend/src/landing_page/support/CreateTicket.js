@@ -89,7 +89,7 @@ function CreateTicket() {
             <div
               className="p-3 d-flex justify-content-between align-items-center"
               style={{ cursor: "pointer" }}
-              onClick={() => toggleSection("zerodha")}
+              onClick={() => toggleSection("Finspirax")}
             >
               <div className="d-flex align-items-center gap-3">
                 <div
@@ -105,10 +105,10 @@ function CreateTicket() {
                 <h5 className="m-0 text-dark">Your Finspirax Account</h5>
               </div>
               <span style={{ color: "#387ed1" }}>
-                {openSection === "zerodha" ? "▲" : "▼"}
+                {openSection === "Finspirax" ? "▲" : "▼"}
               </span>
             </div>
-            {openSection === "zerodha" && (
+            {openSection === "Finspirax" && (
               <div className="border-top p-3 ps-5">
                 <ul
                   className="mb-0"
